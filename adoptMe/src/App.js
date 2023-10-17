@@ -1,10 +1,10 @@
 // Pet component
 
-const Pet = () => {
+const Pet = (data) => {
     return React.createElement("ul",{},[
-        React.createElement("li",{},"name"),
-        React.createElement("li",{},"type"),
-        React.createElement("li",{},"breed"),
+        React.createElement("li",{},data.name),
+        React.createElement("li",{},data.type),
+        React.createElement("li",{},data.breed),
     ]);
 }
 
@@ -12,13 +12,16 @@ const Pet = () => {
 
 
 // Main Component
+// Remember that React data flow is one way top -> down 
+// means parent components can pass data to child components
+// so in this example Component APP can pass data to Pet App
 const App = () => {
     return React.createElement("div",{},
         [
             React.createElement("h1",{},"Adopt me !!"),
-            React.createElement(Pet),
-            React.createElement(Pet),
-            React.createElement(Pet)
+            React.createElement(Pet,{name:"Luna",type:"Dog",breed:"Havanese"}),
+            React.createElement(Pet,{name:"Pepper",type:"Bird",breed:"Cockatiel"}),
+            React.createElement(Pet,{name:"Doink",type:"Cat",breed:"Mixed"}),
         ]
     );
 }
