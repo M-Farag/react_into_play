@@ -1,5 +1,5 @@
-import ReactDOM from "react-dom";
-import Pet from "./Pet";
+import ReactDOM from "react-dom/client";
+import SearchParams from "./SearchParams";
 
 
 // Main Component
@@ -11,9 +11,7 @@ const App = () => {
   return (
     <div>
       <h1> Adopt me !!</h1>
-      <Pet name="Luna" type="Dog" breed="Havanese" />
-      <Pet name="Pepper" type="Bird" breed="Cockatiel" />
-      <Pet name="Doink" type="Cat" breed="Mixed" />
+      <SearchParams />
     </div>
   );
 }
