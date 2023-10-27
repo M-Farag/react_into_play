@@ -1,4 +1,4 @@
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import SearchParams from "./searchParams";
 
 const App = () => {
