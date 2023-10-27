@@ -1,13 +1,11 @@
 import ReactDOM from "react-dom";
-import Contact from "./Contact";
+import SearchParams from "./searchParams";
 
 const App = () => {
   return (
     <div>
       <h1>Contacts</h1>
-      <Contact name="john" title="Mr" company="Google" />
-      <Contact name="Mark" title="Mr" company="Apple" />
-      <Contact name="Jack" title="Mr" company="Facebook" />
+      <SearchParams />
     </div>
   );
 };
