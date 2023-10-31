@@ -1,32 +1,46 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const UserProfile = () => {
+    const [user, setUser] = useState("");
+    const [userID,setUserID] = useState(1);
 
-    const [user,setUser ] = useState("");
+    useEffect(()=>{
+        getUserData()
+    },[userID]);
+
+    async function getUserData()
+    {
+        const results = await fetch(
+            `https://dummyjson.com/users/${userID}`
+        );
+
+        const json = await results.json();
+        setUser(json);
+    }
 
 
     return (
         <div>
             <div className="container">
-                <div className="profile-picture"></div>
-                <h2>User Name</h2>
+                <img className="profile-picture" src={user.image} />
+                <h2>{user.firstName} {user.lastName}</h2>
                 <p>Email: {user.email}</p>
-                <p>Location: {user.city}, {user.country}</p>
-        </div>
+                <p>Location: {user.address?.city}, {user.address?.state}</p>
+            </div>
 
-        <div className="work-details">
-            <h2>Work Details</h2>
-            <p>Position: Full Stack Software Engineer</p>
-            <p>Skills: CPP, Python, PHP, JavaScript, React, MySQL, Web Development, Data Processing</p>
-        </div>
+            <div className="work-details">
+                <h2>Work Details</h2>
+                <p>Title: {user.company?.title}</p>
+                <p>Department: {user.company?.department}</p>
+            </div>
 
-            <div className="other-data">
-                <h2>Other Data</h2>
-                <p>Learning: Rust</p>
-            
+            <hr />
+
+            <div className="get-user">
+                <input type="text" value={userID} onChange={e => (setUserID(e.target.value))}/>
             </div>
         </div>
     );
-}
+};
 
 export default UserProfile;
