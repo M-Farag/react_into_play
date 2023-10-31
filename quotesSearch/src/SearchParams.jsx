@@ -5,9 +5,13 @@ const SearchParams = () => {
     const [quotes, setQuotes] = useState([]);
     const category = "age";
 
-    // useEffect(
-    //     getQuotes(),[]
-    // );
+    useEffect(
+        () => {
+            getQuotes()
+        },[
+            quote
+        ]
+    );
     
 
     async function getQuotes() {
