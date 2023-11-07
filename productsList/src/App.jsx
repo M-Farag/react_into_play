@@ -1,10 +1,10 @@
 import  ReactDOM  from "react-dom/client";
-import Category from "./Category";
+import StoreCategory from "./StoreCategory";
 
 const App = () => {
     return (
         <div>
-            <Category />
+            <StoreCategory />
         </div>
     );
 }

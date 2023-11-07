@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import useProductList from "./useProductsList";
 
-const Category = () => {
+const StoreCategory = () => {
 
     const [category, setCategory] = useState("");
     const [categories, setCategories] = useState([]);
-    const [items, setItems] = useState([]);
+    const productsList = useProductList(category);
+    
     useEffect(
         ()=> {
             getCategories();
@@ -17,17 +19,15 @@ const Category = () => {
                 const json = await results.json();
                 setCategories(json);
             }
-        },[category]
+        },[]
     
         );
     return (
         <div className="main-container">
                 <label htmlFor="categories">
-                    <select id="category" onChange={
-                        (e)=> {
-                            setCategory(e.target.value)
-                        }
-                     }>
+                    <select id="category" onChange={e=>{
+                        setCategory(e.target.value)
+                    }}>
                         <option> -- </option>
                         {
                             categories.map(
@@ -42,11 +42,19 @@ const Category = () => {
 
                 <label htmlFor="items">
                     <select>
-                        <option>item 1</option>
+                        <option> -- </option>
+                        {
+                            productsList.map(
+                                item => 
+                                {
+                                    return <option key={item.id}>{item.title}</option>
+                                }
+                            )
+                        }
                     </select>
                 </label>
             </div>
     );
 }
 
-export default Category
+export default StoreCategory
