@@ -5,7 +5,7 @@ const StoreCategory = () => {
 
     const [category, setCategory] = useState("");
     const [categories, setCategories] = useState([]);
-    const productsList = useProductList(category);
+    const [productsList] = useProductList(category);
     
     useEffect(
         ()=> {

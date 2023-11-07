@@ -36,5 +36,5 @@ export default function useProductList(category) {
     ,[category]);
 
 
-    return productsList
+    return [productsList]
 }
