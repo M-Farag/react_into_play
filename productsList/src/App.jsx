@@ -1,21 +1,10 @@
 import  ReactDOM  from "react-dom/client";
+import Category from "./Category";
 
 const App = () => {
     return (
         <div>
-            <div className="main-container">
-                <label htmlFor="categories">
-                    <select>
-                        <option>Category 1</option>
-                    </select>
-                </label>
-
-                <label htmlFor="items">
-                    <select>
-                        <option>item 1</option>
-                    </select>
-                </label>
-            </div>
+            <Category />
         </div>
     );
 }
