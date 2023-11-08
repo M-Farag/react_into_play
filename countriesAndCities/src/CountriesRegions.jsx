@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import useRegionsList from "./useRegionsList";
 
 const CountriesRegions = () => {
     const [countries,setCountries] = useState([]);
-
+    const [region,setRegion] = useState('');
+    const [regions] = useRegionsList(region);
+    
     // initially get countries
     useEffect(
         ()=> {
@@ -27,12 +30,16 @@ const CountriesRegions = () => {
         <div className="box">
         <div className="label countries">
             <label htmlFor="countries">Countries:</label>
-            <select id="countries">
+            <select id="countries"
+            onChange={e=>{
+                setRegion(e.target.value)
+            }}
+            >
             <option value="">--</option>
             {
                 countries.map(
                     c => {
-                        return <option key={c.code}>{c.name}</option>
+                        return <option key={c.code} value={c.code}>{c.name}</option>
                     }
                 )
             }
@@ -42,8 +49,15 @@ const CountriesRegions = () => {
         <div className="label regions">
             <label htmlFor="regions">Regions:</label>
             <select id="regions">
-            <option value="region1">Region 1</option>
-            <option value="region2">Region 2</option>
+            {
+                regions.map(
+
+                        r => {
+                          return  <option key={r.isoCode}>{r.name}</option>
+
+                    }
+                )
+            }
             </select>
         </div>
         </div>
