@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+
 
 const ProductsList = () => {
     const [products,setProducts] = useState([])
@@ -24,15 +26,15 @@ const ProductsList = () => {
     return (
         <div>
             <h3>Product list</h3>
-
             <ol>
                 {
                     products.map(
                         p => {
                             return (
                             <li key={p.id}> 
-                            <a href={`/products/${p.id}`}>
-                            {p.title}</a></li>
+                                <Link to={`/products/${p.id}`}>
+                                {p.title}</Link>
+                            </li>
                             )
                         }
                     )
