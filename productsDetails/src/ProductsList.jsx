@@ -29,7 +29,11 @@ const ProductsList = () => {
                 {
                     products.map(
                         p => {
-                            return <li key={p.id}> {p.title}</li>
+                            return (
+                            <li key={p.id}> 
+                            <a href={`/products/${p.id}`}>
+                            {p.title}</a></li>
+                            )
                         }
                     )
                 }
