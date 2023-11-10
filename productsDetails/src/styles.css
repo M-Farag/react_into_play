@@ -1,0 +1,41 @@
+/* Styles for the page with the product list */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box {
+  width: 500px;
+  height: 500px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+/* Styles for the page with the product details */
+.product-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.product-details {
+  width: 500px;
+  height: 500px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
