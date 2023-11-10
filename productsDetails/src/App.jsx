@@ -1,6 +1,6 @@
 import  ReactDOM  from "react-dom/client";
 import ProductsList from "./ProductsList";
-import { BrowserRouter ,Route, Routes } from "react-router-dom"
+import { BrowserRouter ,Link,Route, Routes } from "react-router-dom"
 import Product from "./Product";
 
 
@@ -13,13 +13,15 @@ const App = () => {
 
     return (
         <BrowserRouter>
-        
+        <header>
+            <Link to="/"> HomePage </Link>
+        </header>
         <Routes>
-            <Route path="/products/:id" element={<Product />} />
+            <Route path="/products/:product_id" element={<Product />} />
             <Route path="/" element={<ProductsList />} />
         </Routes>
 
-        
+
         </BrowserRouter>
     )
 }
