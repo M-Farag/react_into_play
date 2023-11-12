@@ -1,8 +1,14 @@
 import ReactDOM  from "react-dom/client"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Quote from "./Quote"
 
 const App = () => {
     return (
-        <h2>Hello from react</h2>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Quote />} />
+            </Routes>
+        </BrowserRouter>
     )
 }
 
