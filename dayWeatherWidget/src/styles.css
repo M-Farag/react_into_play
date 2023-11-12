@@ -1,0 +1,52 @@
+/* FILEPATH: /Users/mina/dev/js/react_into_play/dayWeatherWidget/src/styles.css */
+
+/* Set white background */
+body {
+  background-color: #fff;
+}
+
+/* Center the boxes */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Style the boxes */
+.box {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the first box */
+.date-box {
+  background-color: #fff;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Style the second box */
+.weather-box {
+  background-color: #fff;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Style the third box */
+.quote-box {
+  background-color: #fff;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
