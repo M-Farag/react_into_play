@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
 import useProductList from "./useProductsList";
+import fetchProductList from "./fetchProductList";
+import {useQuery} from "@tanstack/react-query";
+
 
 const StoreCategory = () => {
 
     const [category, setCategory] = useState("");
     const [categories, setCategories] = useState([]);
-    const [productsList] = useProductList(category);
+    const productsList  = useQuery(['key_1',category],fetchProductList);
+    
     
     useEffect(
         ()=> {
             getCategories();
 
-            async function getCategories(category)
+            async function getCategories()
             {   
                 const results = await fetch(
-                    `https://fakestoreapi.com/products/categories`
+                    `https://dummyjson.com/products/categories`
                 );
                 const json = await results.json();
                 setCategories(json);
@@ -44,10 +48,11 @@ const StoreCategory = () => {
                     <select>
                         <option> -- </option>
                         {
-                            productsList.map(
+                            productsList.data && productsList.data.map(
                                 item => 
                                 {
                                     return <option key={item.id}>{item.title}</option>
+                                    
                                 }
                             )
                         }

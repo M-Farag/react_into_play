@@ -1,11 +1,23 @@
 import  ReactDOM  from "react-dom/client";
 import StoreCategory from "./StoreCategory";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const myQueryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: Infinity,
+        cacheTime: Infinity,
+      },
+    },
+  });
 
 const App = () => {
     return (
-        <div>
-            <StoreCategory />
-        </div>
+        <QueryClientProvider client={myQueryClient}>
+            <div>
+                <StoreCategory />
+            </div>
+        </QueryClientProvider>
     );
 }
 
