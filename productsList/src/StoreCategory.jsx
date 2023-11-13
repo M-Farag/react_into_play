@@ -7,8 +7,8 @@ import fetchCategories from "./fetchCategories";
 
 const StoreCategory = () => {
 
-    const [category, setCategory] = useState("");
-    const [categories, setCategories] = useState([]);
+    const [category, setCategory] = useState('');
+    const [categories, setCategories] = useState('');
     const productsList  = useQuery(['key_1',category],fetchProductList);
     const categoriesList = useQuery(['key_2',categories],fetchCategories)
     
