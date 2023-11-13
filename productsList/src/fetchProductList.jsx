@@ -1,6 +1,10 @@
-async function fetchProductList ({queryKey}) {
+export default async function fetchProductList ({queryKey}) {
     
     const category = queryKey[1];
+    // add default category if none is selected
+    if (!category) {
+        return [];
+    }
     const results = await fetch(
         `https://dummyjson.com/products/category/${category}`
     );
@@ -14,5 +18,3 @@ async function fetchProductList ({queryKey}) {
     return json.products
 
 }
-
-export default fetchProductList;

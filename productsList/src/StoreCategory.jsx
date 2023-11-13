@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useProductList from "./useProductsList";
 import fetchProductList from "./fetchProductList";
 import {useQuery} from "@tanstack/react-query";
+import fetchCategories from "./fetchCategories";
 
 
 const StoreCategory = () => {
@@ -9,23 +10,8 @@ const StoreCategory = () => {
     const [category, setCategory] = useState("");
     const [categories, setCategories] = useState([]);
     const productsList  = useQuery(['key_1',category],fetchProductList);
+    const categoriesList = useQuery(['key_2',categories],fetchCategories)
     
-    
-    useEffect(
-        ()=> {
-            getCategories();
-
-            async function getCategories()
-            {   
-                const results = await fetch(
-                    `https://dummyjson.com/products/categories`
-                );
-                const json = await results.json();
-                setCategories(json);
-            }
-        },[]
-    
-        );
     return (
         <div className="main-container">
                 <label htmlFor="categories">
@@ -34,7 +20,7 @@ const StoreCategory = () => {
                     }}>
                         <option> -- </option>
                         {
-                            categories.map(
+                            categoriesList.data && categoriesList.data.map(
                                 cat => 
                                 {
                                     return <option key={cat}>{cat}</option>
