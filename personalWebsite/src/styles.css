@@ -7,6 +7,9 @@
 
 body {
     font-family: Arial, sans-serif; /* Choose your preferred font */
+    .content {
+        margin-top: 80px; /* Adjust the value to your liking */
+    }
 }
 
 /* Navigation Bar */
