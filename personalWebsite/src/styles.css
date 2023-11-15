@@ -9,6 +9,7 @@ body {
     font-family: Arial, sans-serif; /* Choose your preferred font */
     .content {
         margin-top: 80px; /* Adjust the value to your liking */
+        padding-left: 20px; /* Add a left padding */
     }
 }
 
